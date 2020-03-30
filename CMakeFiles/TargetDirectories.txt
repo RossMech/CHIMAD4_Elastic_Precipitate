@@ -1,0 +1,6 @@
+/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/CMakeFiles/rebuild_cache.dir
+/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/CMakeFiles/run.dir
+/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/CMakeFiles/debug.dir
+/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/CMakeFiles/edit_cache.dir
+/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/CMakeFiles/main.dir
+/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/CMakeFiles/release.dir
