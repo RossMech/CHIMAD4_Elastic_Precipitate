@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity
+CMAKE_SOURCE_DIR = /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity
+CMAKE_BINARY_DIR = /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate
 
 # Utility rule file for run.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/rossmech/projects/Prisms-pf/phaseField/applications/Cah
 include CMakeFiles/run.dir/progress.make
 
 CMakeFiles/run:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Run with Debug configuration"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Run with Debug configuration"
 	./main
 
 run: CMakeFiles/run
@@ -72,6 +72,6 @@ CMakeFiles/run.dir/clean:
 .PHONY : CMakeFiles/run.dir/clean
 
 CMakeFiles/run.dir/depend:
-	cd /home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity /home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity /home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity /home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity /home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/CMakeFiles/run.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles/run.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/run.dir/depend
 

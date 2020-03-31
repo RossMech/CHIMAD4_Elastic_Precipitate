@@ -13,18 +13,6 @@
 // that can nucleate and whether the value of the field is needed for nucleation
 // rate calculations.
 
-
-// Interpolation function for the parameters of the individual phases
-scalarvalueType interp_function(scalarvalueType phi)
-{
-	return phi * phi * phi * (6 * phi * phi - 15 * phi + 10);
-}
-
-scalarvalueType derivative_interp_function(scalarvalueType phi)
-{
-	return 30 * phi * phi * (phi - 1) * (phi - 1);
-}
-
 void variableAttributeLoader::loadVariableAttributes(){
 	// Variable 0
 	set_variable_name				(0,"c");
@@ -124,8 +112,8 @@ for (unsigned int i=0, scalarvalueType mult = 1.0; i < 10; i++)
 }
 
 // iterpolation function and it's derivative calculation
-scalarvaluetype h_eta = interp_function(c);
-scalarvaluetype dh_deta = derivative_interp_function(c);
+scalarvaluetype h_eta = phi * phi * phi * (6 * phi * phi - 15 * phi + 10);
+scalarvaluetype dh_deta = 30 * phi * phi * (phi - 1) * (phi - 1);
 
 // difference of stiffnesses
 dealii::VectorizedArray<double> delta_CIJ[CIJ_tensor_size][CIJ_tensor_size];
@@ -248,9 +236,8 @@ void customPDE<dim,degree>::equationLHS(variableContainer<dim,degree,dealii::Vec
 
 dealii::VectorizedArray<double> CIJ_eff[CIJ_tensor_size][CIJ_tensor_size];
 
-// iterpolation function and it's derivative calculation
-scalarvaluetype h_eta = interp_function(c);
-scalarvaluetype dh_deta = derivative_interp_function(c);
+// iterpolation function
+scalarvaluetype h_eta = phi * phi * phi * (6 * phi * phi - 15 * phi + 10);
 
 // Calculation of effective stiffness
 dealii::VectorizedArray<double> CIJ_eff[CIJ_tensor_size][CIJ_tensor_size];

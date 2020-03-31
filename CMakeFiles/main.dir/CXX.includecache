@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/ICs_and_BCs.cc
+/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/ICs_and_BCs.cc
 
-/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/customPDE.h
+/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/customPDE.h
 ../../include/matrixFreePDE.h
 /home/rossmech/projects/Prisms-pf/phaseField/include/matrixFreePDE.h
 ../../include/typeDefs.h
 /home/rossmech/projects/Prisms-pf/phaseField/include/typeDefs.h
 
-/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/equations.cc
+/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/equations.cc
 
-/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/main.cc
+/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/main.cc
 ../../include/ParseCommandLineOpts.h
 /home/rossmech/projects/Prisms-pf/phaseField/include/ParseCommandLineOpts.h
 ../../src/models/mechanics/computeStress.h
@@ -24,23 +24,23 @@
 ../../include/inputFileReader.h
 /home/rossmech/projects/Prisms-pf/phaseField/include/inputFileReader.h
 customPDE.h
-/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/customPDE.h
+/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/customPDE.h
 equations.cc
-/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/equations.cc
+/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/equations.cc
 ICs_and_BCs.cc
-/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/ICs_and_BCs.cc
+/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/ICs_and_BCs.cc
 ../../src/variableAttributeLoader/variableAttributeLoader.cc
 /home/rossmech/projects/Prisms-pf/phaseField/src/variableAttributeLoader/variableAttributeLoader.cc
 postprocess.cc
-/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/postprocess.cc
+/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/postprocess.cc
 random
 -
 time.h
 -
 nucleation.cc
-/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/nucleation.cc
+/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/nucleation.cc
 
-/home/rossmech/projects/Prisms-pf/phaseField/applications/Cahn_Hilliard_with_elasticity/postprocess.cc
+/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/postprocess.cc
 
 /home/rossmech/projects/Prisms-pf/phaseField/include/EquationDependencyParser.h
 vector
