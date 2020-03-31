@@ -59,6 +59,7 @@ void customPDE<dim,degree>::explicitEquationRHS(variableContainer<dim,degree,dea
 // --- Getting the values and derivatives of the model variables ---
 scalarvalueType c = variable_list.get_scalar_value(0);
 scalargradType mux = variable_list.get_scalar_gradient(1);
+vectorgradType ux = variable_list.get_vector_gradient(2);
 
 // --- Setting the expressions for the terms in the governing equations ---
 scalarvalueType eq_c = c;
@@ -92,28 +93,27 @@ void customPDE<dim,degree>::nonExplicitEquationRHS(variableContainer<dim,degree,
  scalarvalueType c = variable_list.get_scalar_value(0);
  scalargradType cx = variable_list.get_scalar_gradient(0);
 
- // --- Setting the expressions for the terms in the governing equations ---
-
  // The derivative of the local free energy
- scalarvalueType fcV = 0;
+ scalarvalueType fcV = constV(0.0);
 
  // The array of the local free energy parameters
- constV a [9] = {8.072789087, -81.24549382, 408.0297321, -1244.129167,
+ double a [9] = {8.072789087, -81.24549382, 408.0297321, -1244.129167,
  	2444.046270, -3120.635139, 2506.663551, -1151.003178, 230.2006355};
 
 // calculation of the polynomial of the local free energy
-for (unsigned int i=0, scalarvalueType mult = 1.0; i < 10; i++)
+for (unsigned int i=0; i < 10; i++)
 {
+	scalarvalueType mult = constV(1.0); // multiplier c^n
 	for (unsigned int j=1; j <= i+2; j++)
 	{
 		mult = mult * c;
 	}
-	fcV += mult * a[i];
+	fcV += mult * constV(a[i]);
 }
 
 // iterpolation function and it's derivative calculation
-scalarvaluetype h_eta = phi * phi * phi * (6 * phi * phi - 15 * phi + 10);
-scalarvaluetype dh_deta = 30 * phi * phi * (phi - 1) * (phi - 1);
+scalarvalueType h_eta = c * c * c * (constV(6.0) * c * c - constV(15.0) * c + constV(10.0));
+scalarvalueType dh_deta = constV(30.0) * c * c * (c - constV(1.0)) * (c - constV(1.0));
 
 // difference of stiffnesses
 dealii::VectorizedArray<double> delta_CIJ[CIJ_tensor_size][CIJ_tensor_size];
@@ -127,25 +127,25 @@ for (unsigned int i=0; i<CIJ_tensor_size; i++){
 dealii::VectorizedArray<double> CIJ_eff[CIJ_tensor_size][CIJ_tensor_size];
 for (unsigned int i=0; i<CIJ_tensor_size; i++){
 	  for (unsigned int j=0; j<CIJ_tensor_size; j++){
-		  CIJ_eff[i][j] = CIJ_part[i][j] * h_eta + CIJ_matr[i][j]*sum_hV*(1.0 - h_eta);
+		  CIJ_eff[i][j] = CIJ_part[i][j] * h_eta + CIJ_matr[i][j]*(constV(1.0) - h_eta);
 	  }
 }
 
 // calculate transformation strain
-dealii::VectorizedArray<double> epsilon_transform;
-for (unsigned int i=0; i < dim, i++)
+dealii::VectorizedArray<double> epsilon_transform[dim][dim];
+for (unsigned int i=0; i < dim; i++)
 {
-	for (unsigned int j=0, j < dim, j++)
+	for (unsigned int j=0; j < dim; j++)
 	{
 		epsilon_transform[i][j] = h_eta * epsilon_0[i][j];
 	}
 }
 
 // calculate derivative of transformation strain
-dealii::VectorizedArray<double> epsilon_transform_derivative;
-for (unsigned int i=0; i < dim, i++)
+dealii::VectorizedArray<double> epsilon_transform_derivative[dim][dim];
+for (unsigned int i=0; i < dim; i++)
 {
-	for (unsigned int j=0; j < dim, j++)
+	for (unsigned int j=0; j < dim; j++)
 	{
 		epsilon_transform_derivative[i][j] = dh_deta * epsilon_0[i][j];
 	}
@@ -177,7 +177,7 @@ computeStress<dim>(CIJ_eff, epsilon_el, sigma);
 computeStress<dim>(CIJ_eff, epsilon_el_der, sigma_derivative);
 
 // Compute elastic contribution to chemical potential
-scalarvalueType fel = 0.0;
+scalarvalueType fel = constV(0.0);
 
 for (unsigned int i = 0, i < dim, i++)
 {
@@ -236,14 +236,17 @@ void customPDE<dim,degree>::equationLHS(variableContainer<dim,degree,dealii::Vec
 
 dealii::VectorizedArray<double> CIJ_eff[CIJ_tensor_size][CIJ_tensor_size];
 
+// get the value of conserved variable
+scalarvalueType c = variable_list.get_scalar_value(0);
+
 // iterpolation function
-scalarvaluetype h_eta = phi * phi * phi * (6 * phi * phi - 15 * phi + 10);
+scalarvalueType h_eta = c * c * c * (constV(6.0) * c * c - constV(15.0) * c + constV(10.0));
 
 // Calculation of effective stiffness
 dealii::VectorizedArray<double> CIJ_eff[CIJ_tensor_size][CIJ_tensor_size];
 for (unsigned int i=0; i<CIJ_tensor_size; i++){
 	  for (unsigned int j=0; j<CIJ_tensor_size; j++){
-		  CIJ_eff[i][j] = CIJ_part[i][j] * h_eta + CIJ_matr[i][j]*sum_hV*(constV(1.0) - h_eta);
+		  CIJ_eff[i][j] = CIJ_part[i][j] * h_eta + CIJ_matr[i][j]*(constV(1.0) - h_eta);
 	  }
 }
 
