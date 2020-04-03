@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate
+CMAKE_SOURCE_DIR = /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate
+CMAKE_BINARY_DIR = /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

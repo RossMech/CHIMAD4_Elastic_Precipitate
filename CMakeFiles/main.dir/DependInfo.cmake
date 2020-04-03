@@ -4,31 +4,30 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/main.cc" "/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles/main.dir/main.cc.o"
+  "/home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate/main.cc" "/home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles/main.dir/main.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
+  "BOOST_NO_AUTO_PTR"
   "DEBUG"
   "POSTPROCESS_FILE_EXISTS"
+  "TBB_DO_ASSERT=1"
+  "TBB_USE_DEBUG"
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/usr/include/deal.II/bundled"
-  "/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"
-  "/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent"
-  "/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent/include"
-  "/usr/lib/x86_64-linux-gnu/openmpi/include"
-  "/usr/include/trilinos"
-  "/usr/include/hdf5/openmpi"
-  "/usr/include/scotch"
-  "/usr/include/suitesparse"
-  "/usr/include/petsc"
-  "/usr/lib/x86_64-linux-gnu/hdf5/openmpi/include"
-  "/usr/include/oce"
-  "/usr/include/slepc"
+  "/home/rosty/deal.ii-candi/deal.II-v9.1.1/include"
+  "/home/rosty/deal.ii-candi/deal.II-v9.1.1/include/deal.II/bundled"
+  "/home/rosty/deal.ii-candi/parmetis-4.0.3/include"
+  "/home/rosty/deal.ii-candi/trilinos-release-12-10-1/include"
+  "/home/rosty/deal.ii-candi/petsc-3.11.3/include"
+  "/home/rosty/deal.ii-candi/hdf5-1.10.5/include"
+  "/home/rosty/deal.ii-candi/oce-OCE-0.18.2/include/oce"
+  "/home/rosty/deal.ii-candi/p4est-2.2/FAST/include"
+  "/home/rosty/deal.ii-candi/slepc-3.11.2/include"
   )
 
 # Targets to which this target links.

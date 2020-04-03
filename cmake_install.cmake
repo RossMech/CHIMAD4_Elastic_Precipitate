@@ -1,4 +1,4 @@
-# Install script for directory: /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate
+# Install script for directory: /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -35,10 +35,10 @@ void variableAttributeLoader::loadVariableAttributes(){
 	set_variable_type				(2,VECTOR);
 	set_variable_equation_type		(2,TIME_INDEPENDENT);
 
-	set_dependencies_value_term_RHS(4, "");
-    set_dependencies_gradient_term_RHS(4, "c, grad(u)");
-    set_dependencies_value_term_LHS(4, "");
-    set_dependencies_gradient_term_LHS(4, "c, grad(change(u))");
+	set_dependencies_value_term_RHS(2, "");
+    set_dependencies_gradient_term_RHS(2, "c, grad(u)");
+    set_dependencies_value_term_LHS(2, "");
+    set_dependencies_gradient_term_LHS(2, "c, grad(change(u))");
 }
 
 // =============================================================================================
@@ -92,6 +92,8 @@ void customPDE<dim,degree>::nonExplicitEquationRHS(variableContainer<dim,degree,
 
  scalarvalueType c = variable_list.get_scalar_value(0);
  scalargradType cx = variable_list.get_scalar_gradient(0);
+ vectorgradType ux = variable_list.get_vector_gradient(2);
+ 
 
  // The derivative of the local free energy
  scalarvalueType fcV = constV(0.0);
@@ -166,7 +168,7 @@ for (unsigned int i=0; i<dim; i++)
 	for (unsigned int j=0; j<dim; j++)
 	{
 		epsilon_el[i][j] = epsilon[i][j] - epsilon_transform[i][j];
-		epsilon_el_der[i]][j] = epsilon[i][j] - epsilon_transform_derivative[i][j];
+		epsilon_el_der[i][j] = epsilon[i][j] - epsilon_transform_derivative[i][j];
 	}
 }
 
@@ -179,16 +181,16 @@ computeStress<dim>(CIJ_eff, epsilon_el_der, sigma_derivative);
 // Compute elastic contribution to chemical potential
 scalarvalueType fel = constV(0.0);
 
-for (unsigned int i = 0, i < dim, i++)
+for (unsigned int i = 0; i < dim; i++)
 {
-	for (unsigned int j = 0, j < dim, j++)
+	for (unsigned int j = 0; j < dim; j++)
 	{
 		fel += delta_sigma[i][j]*epsilon_el[i][j] + sigma_derivative[i][j]*epsilon_el[i][j] +
 		sigma[i][j]*epsilon_el_der[i][j];
 	}
 }
+fel = fel * constV(0.5);
 
-fel *= 0.5;
  // The terms for the governing equations
  scalarvalueType eq_mu = fcV+fel;
  scalargradType eqx_mu = constV(KcV)*cx;
@@ -206,13 +208,13 @@ vectorgradType eqx_u;
 //compute the term in the equation
 for (unsigned int i=0; i<dim; i++){
 	for (unsigned int j=0; j<dim; j++){
-		eqx_u[i][j] = -stress[i][j];
+		eqx_u[i][j] = -sigma[i][j];
 	}
 }
 
 // --- Submitting the terms for the governing equations ---
 
-variable_list.set_vector_gradient_term_RHS(0,eqx_u);
+variable_list.set_vector_gradient_term_RHS(2,eqx_u);
 
 }
 
@@ -233,8 +235,6 @@ variable_list.set_vector_gradient_term_RHS(0,eqx_u);
 template <int dim, int degree>
 void customPDE<dim,degree>::equationLHS(variableContainer<dim,degree,dealii::VectorizedArray<double> > & variable_list,
 		dealii::Point<dim, dealii::VectorizedArray<double> > q_point_loc) const {
-
-dealii::VectorizedArray<double> CIJ_eff[CIJ_tensor_size][CIJ_tensor_size];
 
 // get the value of conserved variable
 scalarvalueType c = variable_list.get_scalar_value(0);

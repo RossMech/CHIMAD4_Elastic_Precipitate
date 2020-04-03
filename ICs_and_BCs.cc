@@ -29,16 +29,6 @@ void customPDE<dim,degree>::setInitialCondition(const dealii::Point<dim> &p, con
         scalar_IC += 0.5*(1.0-std::tanh((dist-rad)/1.5));
         if (scalar_IC > 1.0) scalar_IC = 1.0;
     }
-    else if (index == 2) {
-          for (unsigned int d=0; d<dim; d++){
-              vector_IC(d) = 0.0;
-          }
-    }
-    else
-    {
-        scalar_IC = 0.0;
-    }
-
     // ---------------------------------------------------------------------
 }
 

@@ -31,11 +31,28 @@ set Element degree = 2
 # Set the time step parameters
 # =================================================================================
 # The size of the time step
-set Time step = 1.0e-6
+set Time step = 1.0e-8
 
 # The simulation ends when either the number of time steps is reached or the
 # simulation time is reached.
-set Number of time steps = 100000
+set Number of time steps = 1000
+
+# =================================================================================
+# Set the linear solver parameters
+# =================================================================================
+
+subsection Linear solver parameters: u
+    # Whether the tolerance value is compared to the residual (ABSOLUTE_RESIDUAL)
+    # or the change in the residual (RELATIVE_RESIDUAL_CHANGE)
+    set Tolerance type = ABSOLUTE_RESIDUAL
+
+    # The tolerance for convergence (L2 norm)
+    set Tolerance value = 5e-5
+
+    # The maximum number of linear solver iterations per solve
+    set Maximum linear solver iterations = 1000
+end
+
 
 # =================================================================================
 # Set the boundary conditions
@@ -82,7 +99,8 @@ set Model constant KcV = 0.29, DOUBLE
 set Model constant epsilon_0 = ((0.005,0,0),(0,0.005,0),(0,0,0.005))
 
 # Elastic constants
-set Model constant CIJ_matr = (250.0,250.0,250.0,100.0,100.0,100.0,150.0,150.0,0.0,0.0,0.0,150.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,), anisotropic elastic constants
+set Model constant CIJ_matr = (250.0,250.0,250.0,100.0,100.0,100.0,150.0,150.0,0.0,0.0,0.0,150.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0), anisotropic elastic constants
+set Model constant CIJ_part = (275.0,275.0,275.0,110.0,110.0,110.0,165.0,165.0,0.0,0.0,0.0,165.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0), anisotropic elastic constants
 
 # =================================================================================
 # Set the output parameters
@@ -96,4 +114,4 @@ set Output condition = EQUAL_SPACING
 set Number of outputs = 10
 
 # The number of time steps between updates being printed to the screen
-set Skip print steps = 1000
+set Skip print steps = 100

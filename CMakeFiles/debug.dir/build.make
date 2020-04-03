@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate
+CMAKE_SOURCE_DIR = /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate
+CMAKE_BINARY_DIR = /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate
 
 # Utility rule file for debug.
 
@@ -54,9 +54,9 @@ CMAKE_BINARY_DIR = /home/rossmech/projects/Prisms-pf/phaseField/applications/CHI
 include CMakeFiles/debug.dir/progress.make
 
 CMakeFiles/debug:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Switch CMAKE_BUILD_TYPE to Debug"
-	+env /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate
-	+env /usr/bin/cmake --build /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate --target all
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Switch CMAKE_BUILD_TYPE to Debug"
+	+env /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate
+	+env /usr/bin/cmake --build /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate --target all
 
 debug: CMakeFiles/debug
 debug: CMakeFiles/debug.dir/build.make
@@ -73,6 +73,6 @@ CMakeFiles/debug.dir/clean:
 .PHONY : CMakeFiles/debug.dir/clean
 
 CMakeFiles/debug.dir/depend:
-	cd /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate /home/rossmech/projects/Prisms-pf/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles/debug.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate /home/rosty/phaseField/applications/CHIMAD4_Elastic_Precipitate/CMakeFiles/debug.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/debug.dir/depend
 
